@@ -20,7 +20,7 @@ terraform {
 # Provider configuration for the management account
 provider "aws" {
   region = "us-east-1"
-  # No alias for the default provider - this will be used with root credentials initially
+  alias = "management"
 }
 
 # Create AWS Organization

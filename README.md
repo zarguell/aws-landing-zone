@@ -53,8 +53,6 @@ mkdir lambda
 cd lambda
 ```
 
-Create a file named `index.py` and copy the contents from the Security Scanner Lambda Function artifact.
-
 Create the ZIP archive:
 
 ```bash
