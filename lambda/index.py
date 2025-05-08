@@ -29,7 +29,18 @@ def handler(event, context):
         role_arn = f"arn:aws:iam::{workload_account_id}:role/SecurityAuditorRole"
         assumed_role = sts_client.assume_role(
             RoleArn=role_arn,
-            RoleSessionName="SecurityScanSession"
+            RoleSessionName="SecurityScanSession",
+            ExternalId="UniqueSecurityScanID123",
+            Tags=[
+                {
+                    'Key': 'Purpose',
+                    'Value': 'SecurityScan'
+                },
+                {
+                    'Key': 'Source',
+                    'Value': 'SecurityAccount'
+                }
+            ]
         )
         
         # Extract temporary credentials

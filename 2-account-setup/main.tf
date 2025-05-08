@@ -69,11 +69,14 @@ resource "aws_iam_role" "security_auditor_role" {
         Effect    = "Allow"
         Action    = "sts:AssumeRole"
         Principal = {
-          AWS = "arn:aws:iam::${local.security_account_id}:root"
-        }
+          AWS = [
+            "arn:aws:iam::${local.security_account_id}:root",
+            "arn:aws:iam::${local.security_account_id}:role/SecurityAutomationRole"
+          ]
+        },
         Condition = {
           StringEquals = {
-            "aws:PrincipalOrgID" = local.management_account_id
+            "sts:ExternalId": "UniqueSecurityScanID123"
           }
         }
       }
@@ -120,11 +123,6 @@ resource "aws_iam_policy" "assume_security_auditor_policy" {
         Effect   = "Allow"
         Action   = "sts:AssumeRole"
         Resource = "arn:aws:iam::*:role/SecurityAuditorRole"
-        Condition = {
-          StringEquals = {
-            "aws:PrincipalOrgID" = local.management_account_id
-          }
-        }
       }
     ]
   })
