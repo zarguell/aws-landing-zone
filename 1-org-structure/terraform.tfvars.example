@@ -1,0 +1,2 @@
+security_account_email      = "security@example.com"
+workload_account_email      = "workloads@example.com"
