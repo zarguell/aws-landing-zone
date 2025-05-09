@@ -30,17 +30,7 @@ def handler(event, context):
         assumed_role = sts_client.assume_role(
             RoleArn=role_arn,
             RoleSessionName="SecurityScanSession",
-            ExternalId="UniqueSecurityScanID123",
-            Tags=[
-                {
-                    'Key': 'Purpose',
-                    'Value': 'SecurityScan'
-                },
-                {
-                    'Key': 'Source',
-                    'Value': 'SecurityAccount'
-                }
-            ]
+            ExternalId="UniqueSecurityScanID123"
         )
         
         # Extract temporary credentials
