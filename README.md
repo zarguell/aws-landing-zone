@@ -4,8 +4,6 @@ This guide walks you through setting up a simplified AWS landing zone focused on
 
 ## Architecture Overview
 
-![Architecture Diagram](https://via.placeholder.com/800x400?text=AWS+Landing+Zone+Architecture)
-
 The architecture includes:
 
 1. **Management Account**: Hosts the AWS Organization and manages member accounts
@@ -160,8 +158,3 @@ Now that your security landing zone is set up, here are some next steps to enhan
 4. **Set Up CloudTrail**: Configure CloudTrail in the Management account with a central S3 bucket
 5. **Implement Budgets**: Set up AWS Budgets to monitor costs and avoid unexpected charges
 
-## Security Best Practices
-
-### 1. Handling Credential Files
-
-The deployment process creates credential
